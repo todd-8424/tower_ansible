@@ -1,0 +1,8 @@
+---
+- name: Create user
+  hosts: all 
+  become: True
+  tasks:
+    - name: tower_create_user | Create admin user
+      include_role: 
+        name: tower_create_user 
