@@ -4,7 +4,6 @@ password: test
 domain: example
 fname: test
 lname: user
-# tusername: "{{ lookup('hashi_vault', 'secret=tower/data/tower:data token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False')|json_query('username')}}"
 tusername: "{{ lookup('hashi_vault', 'secret=tower/data/tower:username token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False') }}"
-tpassword: "{{ lookup('cypher','secret=tower/tower/password') }}"
-thost: "{{ lookup('cypher','secret=tower/tower/host') }}"
+tpassword: "{{ lookup('hashi_vault', 'secret=tower/data/tower:password token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False') }}"
+thost: "{{ lookup('hashi_vault', 'secret=tower/data/tower:host token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False') }}"
