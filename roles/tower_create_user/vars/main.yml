@@ -1,5 +1,5 @@
 # file for roles variables
-username: tower
+username: 
 password: test
 domain: example
 fname: test

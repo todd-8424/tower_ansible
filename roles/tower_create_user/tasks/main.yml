@@ -5,17 +5,19 @@
 
 - name: DEBUG | print tower username
   debug:
-    msg: "{{ tusername }}"
-
-# - name: tower_create_user | Add tower user
-#   tower_user:
-#     is_superuser: True
-#     username: "{{ username }}"
-#     password: "{{ password }}"
-#     email: "{{ username }}@{{ domain }}"
-#     first_name: "{{ fname }}"
-#     last_name: "{{ lname }}"
-#     state: present
-#     tower_username: "{{ tusername }}"
-#     tower_password: "{{ tpassword }}"
-#     tower_host: "{{ thost }}"
+    msg: 
+      - "AWX/Tower User Being created"
+      - "{{ tusername }}"
+    
+- name: tower_create_user | Add tower user
+  tower_user:
+    is_superuser: True
+    username: "{{ username }}"
+    password: "{{ password }}"
+    email: "{{ username }}@{{ domain }}"
+    first_name: "{{ fname }}"
+    last_name: "{{ lname }}"
+    state: present
+    tower_username: "{{ tusername }}"
+    tower_password: "{{ tpassword }}"
+    tower_host: "{{ thost }}"
