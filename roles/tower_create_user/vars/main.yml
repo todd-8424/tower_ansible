@@ -1,9 +1,4 @@
 # file for roles variables
-username: 
-password: test
-domain: example
-fname: test
-lname: user
 tusername: "{{ lookup('hashi_vault', 'secret=tower/data/tower:username token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False') }}"
 tpassword: "{{ lookup('hashi_vault', 'secret=tower/data/tower:password token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False') }}"
 thost: "{{ lookup('hashi_vault', 'secret=tower/data/tower:host token='\"{{ vault_token }}\" ' url=http://tklx00002.k24.lan:8200 validate_certs=False') }}"
