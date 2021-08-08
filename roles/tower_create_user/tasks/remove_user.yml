@@ -1,0 +1,16 @@
+- name: DEBUG | print tower username
+  debug:
+    msg: 
+      - "AWX/Tower User Being removed"
+      - "{{ username }}"
+    
+- name: tower_create_user | Remove tower user
+  tower_user:
+    username: "{{ username }}"
+    first_name: "{{ first_name }}"
+    last_name: "{{ last_name }}"
+    state: absent
+    tower_username: "{{ tower_username }}"
+    tower_password: "{{ tower_password }}"
+    tower_host: "{{ tower_host }}"
+  no_log: True

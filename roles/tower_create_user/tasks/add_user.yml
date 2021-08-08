@@ -1,0 +1,19 @@
+- name: DEBUG | print tower username
+  debug:
+    msg: 
+      - "AWX/Tower User Being created"
+      - "{{ tower_username }}"
+    
+- name: tower_create_user | Add tower user
+  tower_user:
+    is_superuser: True
+    username: "{{ username }}"
+    password: "{{ password }}"
+    email: "{{ username }}@{{ domain }}"
+    first_name: "{{ first_name }}"
+    last_name: "{{ last_name }}"
+    state: present
+    tower_username: "{{ tower_username }}"
+    tower_password: "{{ tower_password }}"
+    tower_host: "{{ tower_host }}"
+  no_log: True
