@@ -3,21 +3,14 @@
 - name: GATE | Run GATE
   include: gate.yml 
 
-- name: DEBUG | print tower username
-  debug:
-    msg: 
-      - "AWX/Tower User Being created"
-      - "{{ tusername }}"
-    
-- name: tower_create_user | Add tower user
-  tower_user:
-    is_superuser: True
-    username: "{{ username }}"
-    password: "{{ password }}"
-    email: "{{ username }}@{{ domain }}"
-    first_name: "{{ fname }}"
-    last_name: "{{ lname }}"
-    state: present
-    tower_username: "{{ tusername }}"
-    tower_password: "{{ tpassword }}"
-    tower_host: "{{ thost }}"
+- name: MAIN | Include add_user
+  include: add_user.yml
+  when: > 
+    add_user is defined
+    and add_user
+
+- name: MAIN | Include remove_user
+  include: remove_user.yml
+  when: >
+    remove_user is defined
+    and remove_user

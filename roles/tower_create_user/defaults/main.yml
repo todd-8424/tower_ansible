@@ -1,6 +1,5 @@
 # main file for defaults for vars
 username: default_user
-password: 
-domain: example
-fname: default
-lname: User
+domain: example.com
+first_name: default
+last_name: User

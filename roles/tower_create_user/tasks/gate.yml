@@ -1,3 +1,16 @@
 # File for gate testing before running a role on server
 - name: GATE | Include vault.yml
   include_vars: vault.yml
+
+- name: GATE | Fail if password is empty
+  ansible.builtin.fail:
+    msg: The password is not defined
+  when: >
+    password is undefined
+
+- name: GATE | Fail if password is empty
+  ansible.builtin.fail:
+    msg: The password is empty
+  when: >
+    password is defined
+    and password == ""

@@ -2,6 +2,7 @@
 - name: Create user
   hosts: all 
   become: True
+  gather_facts: False
   tasks:
     - name: tower_create_user | Create admin user
       include_role: 
